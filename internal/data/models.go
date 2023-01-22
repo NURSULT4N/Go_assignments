@@ -2,7 +2,6 @@ package data
 
 import (
 	"errors"
-
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 
@@ -13,10 +12,12 @@ var (
 
 type Models struct {
 	Movies MovieModel
+	Users  UserModel // Add a new Users field.
 }
 
 func NewModels(db *pgxpool.Pool) Models {
 	return Models{
 		Movies: MovieModel{DB: db},
+		Users:  UserModel{DB: db},
 	}
 }
